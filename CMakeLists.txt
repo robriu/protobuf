@@ -22,7 +22,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/protos)
 set(SOURCES MAIN.cpp)
 
 # set the protos of the project
-set(MAIN_PROTOS protos/define.proto protos/request.proto protos/response.proto)
+set(MAIN_PROTOS protos/proto.proto)
 
 # code Generation
 if(protobuf_MODULE_COMPATIBLE) 
