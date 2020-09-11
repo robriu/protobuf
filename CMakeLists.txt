@@ -19,10 +19,10 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/protos)
 
 # set the sources of the project
-set(SOURCES MAIN.cpp)
+set(SOURCES cpp/main.cpp)
 
 # set the protos of the project
-set(MAIN_PROTOS protos/proto.proto)
+set(MAIN_PROTOS proto/<file_name>.proto)
 
 # code Generation
 if(protobuf_MODULE_COMPATIBLE) 
