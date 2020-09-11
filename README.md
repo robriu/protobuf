@@ -1,0 +1,1 @@
+Base project for starting with protobuffers using cmake
