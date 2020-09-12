@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+package RESPONSE;
+
+//	*** Response	***	//
+message Response {
+	required uint32 id = 1;
+	required uint32 sequence = 2;
+	optional string response_message = 3;
+
+	oneof Type {
+		ResponseGet response_get = 4;
+		ResponseSet response_set = 5; 
+		ResponseDel response_del = 6;
+	}
+}
+
+message ResponseGet { }
+
+message ResponseSet { }
+
+message ResponseDel { }
