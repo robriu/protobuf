@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-package PRINT_SETTINGS;
+package SETTINGS;
 
 message PrintSettings {
 	optional Quiality quiality = 1;
