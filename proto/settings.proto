@@ -1,0 +1,100 @@
+syntax = "proto2";
+
+package SETTINGS;
+
+message PrintSettings {
+    optional Quiality quiality = 1;
+    optional Shell shell = 2;
+    optional Infill infill= 3;
+    optional Material material = 4;
+    optional Speed speed = 5;
+    optional Travel travel = 6;
+    optional Cooling cooling = 7;
+    optional BuildPlateAdhesion build_plate_adhesion = 8;
+    optional DualExtrusion dual_extrusion = 9;
+    
+    message Quiality {
+        required float layer_height = 1;
+    }
+
+    message Shell {
+        required float will_thickness = 1;
+        required float wall_line_count = 2;
+        required float top_bot_thickness = 3;
+        required float top_thickness = 4;
+        required float top_layers = 5;
+        required float bot_thickness = 6;
+        required float bot_layers = 7;
+        required float horizontal_expansion = 8;
+    }
+
+    message Infill {
+        required float infill_density = 1;
+        required InfillPattern infill_pattern = 2;
+
+        enum InfillPattern {
+            GRID = 0;
+            LINES = 1;
+            TRIANGLES = 2;
+            TRI_HEXAGON = 3;
+            CUBIC = 4;
+            CUBIC_SUBDIVISION = 5;
+            OCTET = 6;
+            QUARTER_CUBIC = 7;
+            CONCENTRIC = 8;
+            ZIG_ZAG = 9;
+            CROSS = 10;
+            CROSS_3D = 11;
+            GYROID = 12;
+        }
+    }
+
+    message Material {    }
+
+    message Speed {
+        required float print_speed = 1;
+    }
+
+    message Travel {
+        optional EnableRetraction enable_retraction = 1;
+
+        message EnableRetraction {
+            optional bool z_hop_when_retracted = 1;
+        }
+    }
+
+    message Cooling {
+        optional EnablePrintCooling enable_print_cooling = 1;
+
+        message EnablePrintCooling {
+            required float fan_speed = 1;
+        }
+    }
+
+        message Support {    
+            optional GenerateSupport generate_support = 1; 
+            
+            message GenerateSupport {
+                required SupportPlacement support_placement = 1;
+                required sint32 support_overhang_angle = 2;
+
+                enum SupportPlacement {
+                    TOUCHING_BUILDPLATE = 0;
+                    EVERYWHERE = 1;
+                }
+            }
+    }
+    
+    message BuildPlateAdhesion {
+        required BuildPlateAdhesionType build_plate_adhesion_type = 1;
+
+        enum BuildPlateAdhesionType {
+            SKIRT = 0;
+            BRIM = 1;
+            RAFT = 2;
+            NONE = 3;
+        }
+    }
+
+    message DualExtrusion {    }
+}

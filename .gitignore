@@ -3,6 +3,7 @@
 # Git Ignore File
 # Untracked files:
 
-/build
-/.vscode
-/python/pb2_gen
+build
+.vscode
+example_py/pb2_gen/
+cpp/pb2_gen/

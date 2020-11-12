@@ -1,22 +1,48 @@
 syntax = "proto2";
 
+import "settings.proto";
 package REQUEST;
 
 //	***	Request	***	//
 message Request {
-	required uint32 id = 1;
-	required uint32 sequence = 2;
-	optional string request_message = 3;
+    required uint32 id = 1;
+    required uint32 sequence = 2;
+    optional string request_message = 3;
 
-	oneof Type {
-		RequestGet request_get = 4;
-		RequestSet request_set = 5; 
-		RequestDel request_del = 6;
-	}
+    oneof Type {
+        GetRequest get_request = 4;
+        SetRequest set_request = 5; 
+        DelRequest del_request = 6;
+    }
 }
 
-message RequestGet { }
+message GetRequest { 
+    oneof Get {
+        GetSettings get_settings = 1;
+    }
+}
 
-message RequestSet { }
+message SetRequest {
+    oneof Set {
+        SetSettings set_settings = 1;
+    }
+}
 
-message RequestDel { }
+message DelRequest { }
+
+message SetSettings {
+    required uint32 profile_id = 1;
+    required SETTINGS.PrintSettings print_settings = 2; 
+    optional string requirements = 3;
+}
+
+message GetSettings {
+    required uint32 profile_id = 1;
+    required SettingsRequestLevel settings_request_level = 2 [default = FULL];
+
+    enum SettingsRequestLevel {
+        FULL = 0;
+        MEDIUM = 1;
+        SHORT = 2;
+    }
+}
