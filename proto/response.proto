@@ -14,7 +14,6 @@ message Response {
         ResponseSet response_set = 5; 
         ResponseDel response_del = 6;
     }
-}
 
 message ResponseGet { }
 
