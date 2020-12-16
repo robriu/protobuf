@@ -7,3 +7,7 @@ build
 .vscode
 example_py/pb2_gen/
 cpp/pb2_gen/
+cpp/CMakeFiles/
+cpp/CMakeCache.txt
+example_py/__pycache__/
+test.txt
